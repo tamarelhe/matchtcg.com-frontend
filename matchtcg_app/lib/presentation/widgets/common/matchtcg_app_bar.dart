@@ -25,12 +25,10 @@ class MatchTCGAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: title != null
-          ? Text(
-              title!,
-              style: AppTextStyles.headlineMedium,
-            )
-          : null,
+      title:
+          title != null
+              ? Text(title!, style: AppTextStyles.headlineMedium)
+              : null,
       backgroundColor: backgroundColor ?? AppColors.surface,
       foregroundColor: AppColors.onSurface,
       elevation: AppSpacing.elevation2,
@@ -44,10 +42,7 @@ class MatchTCGAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget? _buildBackButton(BuildContext context) {
     if (Navigator.of(context).canPop()) {
       return IconButton(
-        icon: const Icon(
-          Icons.arrow_back_ios_new,
-          color: AppColors.onSurface,
-        ),
+        icon: const Icon(Icons.arrow_back_ios_new, color: AppColors.onSurface),
         onPressed: () => Navigator.of(context).pop(),
         tooltip: 'Back',
       );
@@ -75,16 +70,13 @@ class MatchTCGAppBar extends StatelessWidget implements PreferredSizeWidget {
 
 /// Brand logo widget for app bar
 class MatchTCGLogo extends StatelessWidget {
-  const MatchTCGLogo({
-    super.key,
-    this.height = 32,
-  });
+  const MatchTCGLogo({super.key, this.height = 32});
 
   final double height;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: height,
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -95,10 +87,7 @@ class MatchTCGLogo extends StatelessWidget {
             height: 24,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(AppSpacing.radiusSmall),
-              border: Border.all(
-                color: AppColors.primary,
-                width: 1.5,
-              ),
+              border: Border.all(color: AppColors.primary, width: 1.5),
               gradient: AppColors.primaryGradient,
             ),
             child: const Icon(

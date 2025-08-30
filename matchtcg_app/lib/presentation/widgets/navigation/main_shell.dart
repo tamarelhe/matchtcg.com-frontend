@@ -3,13 +3,11 @@ import 'package:go_router/go_router.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_spacing.dart';
 import '../../../core/navigation/app_router.dart';
+import '../../../core/extensions/localization_extension.dart';
 
 /// Main shell widget with bottom navigation for the app
 class MainShell extends StatelessWidget {
-  const MainShell({
-    super.key,
-    required this.child,
-  });
+  const MainShell({super.key, required this.child});
 
   final Widget child;
 
@@ -34,12 +32,7 @@ class MatchTCGBottomNavigation extends StatelessWidget {
     return Container(
       decoration: const BoxDecoration(
         color: AppColors.surface,
-        border: Border(
-          top: BorderSide(
-            color: AppColors.outline,
-            width: 0.5,
-          ),
-        ),
+        border: Border(top: BorderSide(color: AppColors.outline, width: 0.5)),
       ),
       child: SafeArea(
         child: Container(
@@ -55,7 +48,7 @@ class MatchTCGBottomNavigation extends StatelessWidget {
                 context: context,
                 icon: Icons.map_outlined,
                 activeIcon: Icons.map,
-                label: 'Home',
+                label: context.l10n.homeTab,
                 isActive: currentIndex == 0,
                 onTap: () => context.goToHome(),
               ),
@@ -63,7 +56,7 @@ class MatchTCGBottomNavigation extends StatelessWidget {
                 context: context,
                 icon: Icons.event_outlined,
                 activeIcon: Icons.event,
-                label: 'Events',
+                label: context.l10n.eventsTab,
                 isActive: currentIndex == 1,
                 onTap: () => context.goToEvents(),
               ),
@@ -71,7 +64,7 @@ class MatchTCGBottomNavigation extends StatelessWidget {
                 context: context,
                 icon: Icons.group_outlined,
                 activeIcon: Icons.group,
-                label: 'Groups',
+                label: context.l10n.groupsTab,
                 isActive: currentIndex == 2,
                 onTap: () => context.goToGroups(),
               ),
@@ -79,7 +72,7 @@ class MatchTCGBottomNavigation extends StatelessWidget {
                 context: context,
                 icon: Icons.person_outline,
                 activeIcon: Icons.person,
-                label: 'Profile',
+                label: context.l10n.profileTab,
                 isActive: currentIndex == 3,
                 onTap: () => context.goToProfile(),
               ),
@@ -103,25 +96,27 @@ class MatchTCGBottomNavigation extends StatelessWidget {
         onTap: onTap,
         borderRadius: BorderRadius.circular(AppSpacing.radiusMedium),
         child: Container(
-          padding: const EdgeInsets.symmetric(
-            vertical: AppSpacing.small,
-          ),
+          padding: const EdgeInsets.symmetric(vertical: AppSpacing.small),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
                 padding: const EdgeInsets.all(2),
-                decoration: isActive
-                    ? BoxDecoration(
-                        color: AppColors.primary.withValues(alpha: 0.1),
-                        borderRadius: BorderRadius.circular(AppSpacing.radiusSmall),
-                      )
-                    : null,
+                decoration:
+                    isActive
+                        ? BoxDecoration(
+                          color: AppColors.primary.withValues(alpha: 0.1),
+                          borderRadius: BorderRadius.circular(
+                            AppSpacing.radiusSmall,
+                          ),
+                        )
+                        : null,
                 child: Icon(
                   isActive ? activeIcon : icon,
                   size: 20,
-                  color: isActive ? AppColors.primary : AppColors.onSurfaceVariant,
+                  color:
+                      isActive ? AppColors.primary : AppColors.onSurfaceVariant,
                 ),
               ),
               const SizedBox(height: 2),
@@ -129,7 +124,10 @@ class MatchTCGBottomNavigation extends StatelessWidget {
                 child: Text(
                   label,
                   style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                    color: isActive ? AppColors.primary : AppColors.onSurfaceVariant,
+                    color:
+                        isActive
+                            ? AppColors.primary
+                            : AppColors.onSurfaceVariant,
                     fontWeight: isActive ? FontWeight.w600 : FontWeight.w500,
                     fontSize: 10,
                   ),

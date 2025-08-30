@@ -5,6 +5,7 @@ import '../../widgets/common/secondary_button.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_text_styles.dart';
 import '../../../core/theme/app_spacing.dart';
+import '../../../core/extensions/localization_extension.dart';
 
 /// Groups screen for managing player groups and communities
 class GroupsScreen extends StatelessWidget {
@@ -15,15 +16,18 @@ class GroupsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: MatchTCGAppBar(
-        title: 'Groups',
+        title: context.l10n.groupsTab,
         showBackButton: false,
         actions: [
-          IconButton(
-            icon: const Icon(Icons.search),
-            onPressed: () {
-              // TODO: Implement search
-            },
-            tooltip: 'Search Groups',
+          Builder(
+            builder:
+                (context) => IconButton(
+                  icon: const Icon(Icons.search),
+                  onPressed: () {
+                    // TODO: Implement search
+                  },
+                  tooltip: context.l10n.search,
+                ),
           ),
         ],
       ),
@@ -57,11 +61,9 @@ class _GroupsContent extends StatelessWidget {
             ],
           ),
         ),
-        
+
         // Groups list
-        Expanded(
-          child: _buildGroupsList(),
-        ),
+        Expanded(child: _buildGroupsList()),
       ],
     );
   }
@@ -75,9 +77,10 @@ class _GroupsContent extends StatelessWidget {
       decoration: BoxDecoration(
         color: isActive ? AppColors.primary.withValues(alpha: 0.1) : null,
         borderRadius: BorderRadius.circular(AppSpacing.radiusSmall),
-        border: isActive
-            ? Border.all(color: AppColors.primary.withValues(alpha: 0.3))
-            : null,
+        border:
+            isActive
+                ? Border.all(color: AppColors.primary.withValues(alpha: 0.3))
+                : null,
       ),
       child: Text(
         label,
@@ -102,7 +105,7 @@ class _GroupsContent extends StatelessWidget {
   Widget _buildGroupCard(int index) {
     final bool isOwner = index == 0;
     final bool isMember = index <= 2;
-    
+
     return Card(
       margin: const EdgeInsets.only(bottom: AppSpacing.medium),
       child: Container(
@@ -147,8 +150,12 @@ class _GroupsContent extends StatelessWidget {
                                   vertical: AppSpacing.micro,
                                 ),
                                 decoration: BoxDecoration(
-                                  color: AppColors.secondary.withValues(alpha: 0.2),
-                                  borderRadius: BorderRadius.circular(AppSpacing.radiusSmall),
+                                  color: AppColors.secondary.withValues(
+                                    alpha: 0.2,
+                                  ),
+                                  borderRadius: BorderRadius.circular(
+                                    AppSpacing.radiusSmall,
+                                  ),
                                 ),
                                 child: Text(
                                   'Owner',

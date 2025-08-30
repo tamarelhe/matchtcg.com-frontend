@@ -1,0 +1,302 @@
+{
+  "@@locale": "en",
+  "appTitle": "MatchTCG",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  
+  "homeTab": "Home",
+  "@homeTab": {
+    "description": "Home tab label in bottom navigation"
+  },
+  
+  "eventsTab": "Events",
+  "@eventsTab": {
+    "description": "Events tab label in bottom navigation"
+  },
+  
+  "groupsTab": "Groups",
+  "@groupsTab": {
+    "description": "Groups tab label in bottom navigation"
+  },
+  
+  "profileTab": "Profile",
+  "@profileTab": {
+    "description": "Profile tab label in bottom navigation"
+  },
+  
+  "login": "Login",
+  "@login": {
+    "description": "Login button text"
+  },
+  
+  "register": "Register",
+  "@register": {
+    "description": "Register button text"
+  },
+  
+  "email": "Email",
+  "@email": {
+    "description": "Email field label"
+  },
+  
+  "password": "Password",
+  "@password": {
+    "description": "Password field label"
+  },
+  
+  "confirmPassword": "Confirm Password",
+  "@confirmPassword": {
+    "description": "Confirm password field label"
+  },
+  
+  "forgotPassword": "Forgot Password?",
+  "@forgotPassword": {
+    "description": "Forgot password link text"
+  },
+  
+  "createAccount": "Create Account",
+  "@createAccount": {
+    "description": "Create account button text"
+  },
+  
+  "alreadyHaveAccount": "Already have an account?",
+  "@alreadyHaveAccount": {
+    "description": "Text asking if user already has an account"
+  },
+  
+  "dontHaveAccount": "Don't have an account?",
+  "@dontHaveAccount": {
+    "description": "Text asking if user doesn't have an account"
+  },
+  
+  "signInWithGoogle": "Sign in with Google",
+  "@signInWithGoogle": {
+    "description": "Google OAuth sign in button text"
+  },
+  
+  "signInWithApple": "Sign in with Apple",
+  "@signInWithApple": {
+    "description": "Apple OAuth sign in button text"
+  },
+  
+  "nearbyEvents": "Nearby Events",
+  "@nearbyEvents": {
+    "description": "Title for nearby events section"
+  },
+  
+  "noEventsFound": "No events found",
+  "@noEventsFound": {
+    "description": "Message when no events are found"
+  },
+  
+  "createEvent": "Create Event",
+  "@createEvent": {
+    "description": "Create event button text"
+  },
+  
+  "eventTitle": "Event Title",
+  "@eventTitle": {
+    "description": "Event title field label"
+  },
+  
+  "eventDescription": "Description",
+  "@eventDescription": {
+    "description": "Event description field label"
+  },
+  
+  "selectGame": "Select Game",
+  "@selectGame": {
+    "description": "Game selection field label"
+  },
+  
+  "startDate": "Start Date",
+  "@startDate": {
+    "description": "Event start date field label"
+  },
+  
+  "endDate": "End Date",
+  "@endDate": {
+    "description": "Event end date field label"
+  },
+  
+  "venue": "Venue",
+  "@venue": {
+    "description": "Venue field label"
+  },
+  
+  "capacity": "Capacity",
+  "@capacity": {
+    "description": "Event capacity field label"
+  },
+  
+  "entryFee": "Entry Fee",
+  "@entryFee": {
+    "description": "Event entry fee field label"
+  },
+  
+  "save": "Save",
+  "@save": {
+    "description": "Save button text"
+  },
+  
+  "cancel": "Cancel",
+  "@cancel": {
+    "description": "Cancel button text"
+  },
+  
+  "delete": "Delete",
+  "@delete": {
+    "description": "Delete button text"
+  },
+  
+  "edit": "Edit",
+  "@edit": {
+    "description": "Edit button text"
+  },
+  
+  "share": "Share",
+  "@share": {
+    "description": "Share button text"
+  },
+  
+  "going": "Going",
+  "@going": {
+    "description": "RSVP status: going"
+  },
+  
+  "interested": "Interested",
+  "@interested": {
+    "description": "RSVP status: interested"
+  },
+  
+  "declined": "Declined",
+  "@declined": {
+    "description": "RSVP status: declined"
+  },
+  
+  "attendees": "Attendees",
+  "@attendees": {
+    "description": "Attendees list title"
+  },
+  
+  "settings": "Settings",
+  "@settings": {
+    "description": "Settings screen title"
+  },
+  
+  "language": "Language",
+  "@language": {
+    "description": "Language setting label"
+  },
+  
+  "english": "English",
+  "@english": {
+    "description": "English language option"
+  },
+  
+  "portuguese": "Português",
+  "@portuguese": {
+    "description": "Portuguese language option"
+  },
+  
+  "logout": "Logout",
+  "@logout": {
+    "description": "Logout button text"
+  },
+  
+  "loading": "Loading...",
+  "@loading": {
+    "description": "Loading indicator text"
+  },
+  
+  "error": "Error",
+  "@error": {
+    "description": "Generic error message"
+  },
+  
+  "retry": "Retry",
+  "@retry": {
+    "description": "Retry button text"
+  },
+  
+  "ok": "OK",
+  "@ok": {
+    "description": "OK button text"
+  },
+  
+  "search": "Search",
+  "@search": {
+    "description": "Search field placeholder"
+  },
+  
+  "filter": "Filter",
+  "@filter": {
+    "description": "Filter button text"
+  },
+  
+  "all": "All",
+  "@all": {
+    "description": "All filter option"
+  },
+  
+  "displayName": "Display Name",
+  "@displayName": {
+    "description": "Display name field label"
+  },
+  
+  "displayNameOptional": "Display Name (Optional)",
+  "@displayNameOptional": {
+    "description": "Optional display name field label"
+  },
+  
+  "emailRequired": "Email is required",
+  "@emailRequired": {
+    "description": "Email validation error message"
+  },
+  
+  "invalidEmail": "Please enter a valid email address",
+  "@invalidEmail": {
+    "description": "Invalid email format error message"
+  },
+  
+  "passwordRequired": "Password is required",
+  "@passwordRequired": {
+    "description": "Password validation error message"
+  },
+  
+  "passwordTooShort": "Password must be at least 8 characters long",
+  "@passwordTooShort": {
+    "description": "Password too short error message"
+  },
+  
+  "confirmPasswordRequired": "Please confirm your password",
+  "@confirmPasswordRequired": {
+    "description": "Confirm password validation error message"
+  },
+  
+  "passwordsDoNotMatch": "Passwords do not match",
+  "@passwordsDoNotMatch": {
+    "description": "Password mismatch error message"
+  },
+  
+  "signOut": "Sign Out",
+  "@signOut": {
+    "description": "Sign out confirmation dialog title"
+  },
+  
+  "signOutConfirmation": "Are you sure you want to sign out?",
+  "@signOutConfirmation": {
+    "description": "Sign out confirmation dialog message"
+  },
+  
+  "authenticationFailed": "Authentication failed",
+  "@authenticationFailed": {
+    "description": "Generic authentication failure message"
+  },
+  
+  "networkError": "Network connection failed",
+  "@networkError": {
+    "description": "Network error message"
+  }
+}

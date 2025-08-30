@@ -3,6 +3,7 @@ import '../../widgets/common/matchtcg_app_bar.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_text_styles.dart';
 import '../../../core/theme/app_spacing.dart';
+import '../../../core/extensions/localization_extension.dart';
 
 /// Home screen with map view for event discovery
 class HomeScreen extends StatelessWidget {
@@ -12,25 +13,31 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
-      appBar: const MatchTCGAppBar(
+      appBar: MatchTCGAppBar(
         title: null,
         showBackButton: false,
-        leading: MatchTCGLogo(),
+        leading: const MatchTCGLogo(),
         actions: [
-          IconButton(
-            icon: Icon(Icons.account_circle_outlined),
-            onPressed: null, // TODO: Navigate to profile
-            tooltip: 'Profile',
+          Builder(
+            builder:
+                (context) => IconButton(
+                  icon: const Icon(Icons.account_circle_outlined),
+                  onPressed: null, // TODO: Navigate to profile
+                  tooltip: context.l10n.profileTab,
+                ),
           ),
         ],
       ),
       body: const _HomeContent(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // TODO: Navigate to create event
-        },
-        tooltip: 'Create Event',
-        child: const Icon(Icons.add),
+      floatingActionButton: Builder(
+        builder:
+            (context) => FloatingActionButton(
+              onPressed: () {
+                // TODO: Navigate to create event
+              },
+              tooltip: context.l10n.createEvent,
+              child: const Icon(Icons.add),
+            ),
       ),
     );
   }
@@ -52,16 +59,9 @@ class _HomeContent extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(
-                    Icons.map_outlined,
-                    size: 64,
-                    color: AppColors.primary,
-                  ),
+                  Icon(Icons.map_outlined, size: 64, color: AppColors.primary),
                   SizedBox(height: AppSpacing.medium),
-                  Text(
-                    'Map View',
-                    style: AppTextStyles.headlineMedium,
-                  ),
+                  Text('Map View', style: AppTextStyles.headlineMedium),
                   SizedBox(height: AppSpacing.small),
                   Text(
                     'Interactive map with event pins will be implemented here',
@@ -73,29 +73,29 @@ class _HomeContent extends StatelessWidget {
             ),
           ),
         ),
-        
+
         // Filter chips container
         Container(
           padding: const EdgeInsets.all(AppSpacing.medium),
           decoration: const BoxDecoration(
             color: AppColors.surface,
             border: Border(
-              top: BorderSide(
-                color: AppColors.outline,
-                width: 0.5,
-              ),
+              top: BorderSide(color: AppColors.outline, width: 0.5),
             ),
           ),
-          child: Row(
-            children: [
-              _buildFilterChip('All Games', true),
-              const SizedBox(width: AppSpacing.small),
-              _buildFilterChip('MTG', false),
-              const SizedBox(width: AppSpacing.small),
-              _buildFilterChip('Lorcana', false),
-              const SizedBox(width: AppSpacing.small),
-              _buildFilterChip('Pokémon', false),
-            ],
+          child: Builder(
+            builder:
+                (context) => Row(
+                  children: [
+                    _buildFilterChip(context.l10n.all, true),
+                    const SizedBox(width: AppSpacing.small),
+                    _buildFilterChip('MTG', false),
+                    const SizedBox(width: AppSpacing.small),
+                    _buildFilterChip('Lorcana', false),
+                    const SizedBox(width: AppSpacing.small),
+                    _buildFilterChip('Pokémon', false),
+                  ],
+                ),
           ),
         ),
       ],

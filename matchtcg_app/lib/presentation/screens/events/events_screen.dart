@@ -4,6 +4,7 @@ import '../../widgets/common/primary_button.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_text_styles.dart';
 import '../../../core/theme/app_spacing.dart';
+import '../../../core/extensions/localization_extension.dart';
 
 /// Events list screen for browsing and managing events
 class EventsScreen extends StatelessWidget {
@@ -14,25 +15,31 @@ class EventsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: MatchTCGAppBar(
-        title: 'Events',
+        title: context.l10n.eventsTab,
         showBackButton: false,
         actions: [
-          IconButton(
-            icon: const Icon(Icons.search),
-            onPressed: () {
-              // TODO: Implement search
-            },
-            tooltip: 'Search Events',
+          Builder(
+            builder:
+                (context) => IconButton(
+                  icon: const Icon(Icons.search),
+                  onPressed: () {
+                    // TODO: Implement search
+                  },
+                  tooltip: context.l10n.search,
+                ),
           ),
         ],
       ),
       body: const _EventsContent(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // TODO: Navigate to create event
-        },
-        tooltip: 'Create Event',
-        child: const Icon(Icons.add),
+      floatingActionButton: Builder(
+        builder:
+            (context) => FloatingActionButton(
+              onPressed: () {
+                // TODO: Navigate to create event
+              },
+              tooltip: context.l10n.createEvent,
+              child: const Icon(Icons.add),
+            ),
       ),
     );
   }
@@ -50,26 +57,27 @@ class _EventsContent extends StatelessWidget {
           padding: const EdgeInsets.all(AppSpacing.medium),
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                _buildFilterChip('All', true),
-                const SizedBox(width: AppSpacing.small),
-                _buildFilterChip('MTG', false),
-                const SizedBox(width: AppSpacing.small),
-                _buildFilterChip('Lorcana', false),
-                const SizedBox(width: AppSpacing.small),
-                _buildFilterChip('Pokémon', false),
-                const SizedBox(width: AppSpacing.small),
-                _buildFilterChip('Other', false),
-              ],
+            child: Builder(
+              builder:
+                  (context) => Row(
+                    children: [
+                      _buildFilterChip(context.l10n.all, true),
+                      const SizedBox(width: AppSpacing.small),
+                      _buildFilterChip('MTG', false),
+                      const SizedBox(width: AppSpacing.small),
+                      _buildFilterChip('Lorcana', false),
+                      const SizedBox(width: AppSpacing.small),
+                      _buildFilterChip('Pokémon', false),
+                      const SizedBox(width: AppSpacing.small),
+                      _buildFilterChip('Other', false),
+                    ],
+                  ),
             ),
           ),
         ),
-        
+
         // Events list
-        Expanded(
-          child: _buildEventsList(),
-        ),
+        Expanded(child: _buildEventsList()),
       ],
     );
   }
@@ -122,12 +130,11 @@ class _EventsContent extends StatelessWidget {
                     ),
                     decoration: BoxDecoration(
                       color: AppColors.primary.withValues(alpha: 0.2),
-                      borderRadius: BorderRadius.circular(AppSpacing.radiusSmall),
+                      borderRadius: BorderRadius.circular(
+                        AppSpacing.radiusSmall,
+                      ),
                     ),
-                    child: const Text(
-                      'MTG',
-                      style: AppTextStyles.labelMedium,
-                    ),
+                    child: const Text('MTG', style: AppTextStyles.labelMedium),
                   ),
                   const Spacer(),
                   const Icon(
@@ -136,10 +143,7 @@ class _EventsContent extends StatelessWidget {
                     color: AppColors.onSurfaceVariant,
                   ),
                   const SizedBox(width: AppSpacing.micro),
-                  const Text(
-                    '12/20',
-                    style: AppTextStyles.labelMedium,
-                  ),
+                  const Text('12/20', style: AppTextStyles.labelMedium),
                 ],
               ),
               const SizedBox(height: AppSpacing.small),
@@ -156,10 +160,7 @@ class _EventsContent extends StatelessWidget {
                     color: AppColors.onSurfaceVariant,
                   ),
                   SizedBox(width: AppSpacing.micro),
-                  Text(
-                    'Today, 7:00 PM',
-                    style: AppTextStyles.bodyMedium,
-                  ),
+                  Text('Today, 7:00 PM', style: AppTextStyles.bodyMedium),
                   SizedBox(width: AppSpacing.medium),
                   Icon(
                     Icons.location_on_outlined,
@@ -167,31 +168,34 @@ class _EventsContent extends StatelessWidget {
                     color: AppColors.onSurfaceVariant,
                   ),
                   SizedBox(width: AppSpacing.micro),
-                  Text(
-                    'Local Game Store',
-                    style: AppTextStyles.bodyMedium,
-                  ),
+                  Text('Local Game Store', style: AppTextStyles.bodyMedium),
                 ],
               ),
               const SizedBox(height: AppSpacing.medium),
               Row(
                 children: [
                   Expanded(
-                    child: PrimaryButton(
-                      text: 'Going',
-                      onPressed: () {
-                        // TODO: Implement RSVP
-                      },
-                      height: 36,
+                    child: Builder(
+                      builder:
+                          (context) => PrimaryButton(
+                            text: context.l10n.going,
+                            onPressed: () {
+                              // TODO: Implement RSVP
+                            },
+                            height: 36,
+                          ),
                     ),
                   ),
                   const SizedBox(width: AppSpacing.small),
-                  IconButton(
-                    icon: const Icon(Icons.share_outlined),
-                    onPressed: () {
-                      // TODO: Implement share
-                    },
-                    tooltip: 'Share Event',
+                  Builder(
+                    builder:
+                        (context) => IconButton(
+                          icon: const Icon(Icons.share_outlined),
+                          onPressed: () {
+                            // TODO: Implement share
+                          },
+                          tooltip: context.l10n.share,
+                        ),
                   ),
                 ],
               ),

@@ -1,42 +1,52 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../widgets/common/matchtcg_app_bar.dart';
 import '../../widgets/common/primary_button.dart';
 import '../../widgets/common/secondary_button.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_text_styles.dart';
 import '../../../core/theme/app_spacing.dart';
+import '../../../core/extensions/localization_extension.dart';
+import '../../../core/providers/auth_providers.dart';
 
 /// Profile screen for user account management and settings
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends ConsumerWidget {
   const ProfileScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final authState = ref.watch(authNotifierProvider);
+
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: MatchTCGAppBar(
-        title: 'Profile',
+        title: context.l10n.profileTab,
         showBackButton: false,
         actions: [
-          IconButton(
-            icon: const Icon(Icons.settings_outlined),
-            onPressed: () {
-              // TODO: Navigate to settings
-            },
-            tooltip: 'Settings',
+          Builder(
+            builder:
+                (context) => IconButton(
+                  icon: const Icon(Icons.settings_outlined),
+                  onPressed: () {
+                    // TODO: Navigate to settings
+                  },
+                  tooltip: context.l10n.settings,
+                ),
           ),
         ],
       ),
-      body: const _ProfileContent(),
+      body: _ProfileContent(user: authState.user),
     );
   }
 }
 
-class _ProfileContent extends StatelessWidget {
-  const _ProfileContent();
+class _ProfileContent extends ConsumerWidget {
+  final dynamic user;
+
+  const _ProfileContent({this.user});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return SingleChildScrollView(
       padding: const EdgeInsets.all(AppSpacing.medium),
       child: Column(
@@ -44,17 +54,17 @@ class _ProfileContent extends StatelessWidget {
           // Profile header
           _buildProfileHeader(),
           const SizedBox(height: AppSpacing.large),
-          
+
           // Quick stats
           _buildQuickStats(),
           const SizedBox(height: AppSpacing.large),
-          
+
           // Action buttons
           _buildActionButtons(),
           const SizedBox(height: AppSpacing.large),
-          
+
           // Menu items
-          _buildMenuItems(),
+          _buildMenuItems(context, ref),
         ],
       ),
     );
@@ -66,10 +76,7 @@ class _ProfileContent extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: AppColors.cardGradient,
         borderRadius: BorderRadius.circular(AppSpacing.radiusLarge),
-        border: Border.all(
-          color: AppColors.outline,
-          width: 0.5,
-        ),
+        border: Border.all(color: AppColors.outline, width: 0.5),
       ),
       child: Column(
         children: [
@@ -77,7 +84,7 @@ class _ProfileContent extends StatelessWidget {
             radius: 48,
             backgroundColor: AppColors.primary.withValues(alpha: 0.2),
             child: Text(
-              'JD',
+              _getInitials(),
               style: AppTextStyles.displayMedium.copyWith(
                 color: AppColors.primary,
                 fontWeight: FontWeight.w700,
@@ -85,15 +92,9 @@ class _ProfileContent extends StatelessWidget {
             ),
           ),
           const SizedBox(height: AppSpacing.medium),
-          const Text(
-            'John Doe',
-            style: AppTextStyles.headlineLarge,
-          ),
+          Text(user?.displayName ?? 'User', style: AppTextStyles.headlineLarge),
           const SizedBox(height: AppSpacing.micro),
-          const Text(
-            'john.doe@example.com',
-            style: AppTextStyles.bodyMedium,
-          ),
+          Text(user?.email ?? '', style: AppTextStyles.bodyMedium),
           const SizedBox(height: AppSpacing.small),
           Container(
             padding: const EdgeInsets.symmetric(
@@ -113,10 +114,7 @@ class _ProfileContent extends StatelessWidget {
                   color: AppColors.primary,
                 ),
                 SizedBox(width: AppSpacing.micro),
-                Text(
-                  'Lisbon, Portugal',
-                  style: AppTextStyles.labelMedium,
-                ),
+                Text('Lisbon, Portugal', style: AppTextStyles.labelMedium),
               ],
             ),
           ),
@@ -128,17 +126,11 @@ class _ProfileContent extends StatelessWidget {
   Widget _buildQuickStats() {
     return Row(
       children: [
-        Expanded(
-          child: _buildStatCard('Events Attended', '12'),
-        ),
+        Expanded(child: _buildStatCard('Events Attended', '12')),
         const SizedBox(width: AppSpacing.medium),
-        Expanded(
-          child: _buildStatCard('Groups Joined', '3'),
-        ),
+        Expanded(child: _buildStatCard('Groups Joined', '3')),
         const SizedBox(width: AppSpacing.medium),
-        Expanded(
-          child: _buildStatCard('Events Created', '2'),
-        ),
+        Expanded(child: _buildStatCard('Events Created', '2')),
       ],
     );
   }
@@ -149,10 +141,7 @@ class _ProfileContent extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.surface,
         borderRadius: BorderRadius.circular(AppSpacing.radiusMedium),
-        border: Border.all(
-          color: AppColors.outline,
-          width: 0.5,
-        ),
+        border: Border.all(color: AppColors.outline, width: 0.5),
       ),
       child: Column(
         children: [
@@ -178,29 +167,35 @@ class _ProfileContent extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-          child: PrimaryButton(
-            text: 'Edit Profile',
-            onPressed: () {
-              // TODO: Navigate to edit profile
-            },
-            icon: Icons.edit_outlined,
+          child: Builder(
+            builder:
+                (context) => PrimaryButton(
+                  text: context.l10n.edit,
+                  onPressed: () {
+                    // TODO: Navigate to edit profile
+                  },
+                  icon: Icons.edit_outlined,
+                ),
           ),
         ),
         const SizedBox(width: AppSpacing.medium),
         Expanded(
-          child: SecondaryButton(
-            text: 'Share Profile',
-            onPressed: () {
-              // TODO: Implement share profile
-            },
-            icon: Icons.share_outlined,
+          child: Builder(
+            builder:
+                (context) => SecondaryButton(
+                  text: context.l10n.share,
+                  onPressed: () {
+                    // TODO: Implement share profile
+                  },
+                  icon: Icons.share_outlined,
+                ),
           ),
         ),
       ],
     );
   }
 
-  Widget _buildMenuItems() {
+  Widget _buildMenuItems(BuildContext context, WidgetRef ref) {
     return Column(
       children: [
         _buildMenuItem(
@@ -261,11 +256,9 @@ class _ProfileContent extends StatelessWidget {
         ),
         _buildMenuItem(
           icon: Icons.logout,
-          title: 'Sign Out',
+          title: context.l10n.logout,
           subtitle: 'Sign out of your account',
-          onTap: () {
-            // TODO: Implement sign out
-          },
+          onTap: () => _showLogoutDialog(ref),
           isDestructive: true,
         ),
       ],
@@ -285,9 +278,10 @@ class _ProfileContent extends StatelessWidget {
         leading: Container(
           padding: const EdgeInsets.all(AppSpacing.small),
           decoration: BoxDecoration(
-            color: isDestructive
-                ? AppColors.error.withValues(alpha: 0.1)
-                : AppColors.primary.withValues(alpha: 0.1),
+            color:
+                isDestructive
+                    ? AppColors.error.withValues(alpha: 0.1)
+                    : AppColors.primary.withValues(alpha: 0.1),
             borderRadius: BorderRadius.circular(AppSpacing.radiusSmall),
           ),
           child: Icon(
@@ -302,20 +296,65 @@ class _ProfileContent extends StatelessWidget {
             color: isDestructive ? AppColors.error : AppColors.onSurface,
           ),
         ),
-        subtitle: Text(
-          subtitle,
-          style: AppTextStyles.bodyMedium,
-        ),
-        trailing: Icon(
-          Icons.chevron_right,
-          color: AppColors.onSurfaceVariant,
-        ),
+        subtitle: Text(subtitle, style: AppTextStyles.bodyMedium),
+        trailing: Icon(Icons.chevron_right, color: AppColors.onSurfaceVariant),
         onTap: onTap,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(AppSpacing.radiusMedium),
         ),
         tileColor: AppColors.surface,
       ),
+    );
+  }
+
+  String _getInitials() {
+    if (user?.displayName != null && user!.displayName!.isNotEmpty) {
+      final names = user!.displayName!.split(' ');
+      if (names.length >= 2) {
+        return '${names[0][0]}${names[1][0]}'.toUpperCase();
+      }
+      return user!.displayName![0].toUpperCase();
+    }
+
+    if (user?.email != null && user!.email!.isNotEmpty) {
+      return user!.email![0].toUpperCase();
+    }
+
+    return 'U';
+  }
+
+  void _showLogoutDialog(WidgetRef ref) {
+    final context = ref.context;
+    showDialog(
+      context: context,
+      builder:
+          (dialogContext) => AlertDialog(
+            backgroundColor: AppColors.surface,
+            title: Text('Sign Out', style: AppTextStyles.headlineMedium),
+            content: Text(
+              'Are you sure you want to sign out?',
+              style: AppTextStyles.bodyMedium,
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(dialogContext).pop(),
+                child: Text(
+                  context.l10n.cancel,
+                  style: TextStyle(color: AppColors.onSurfaceVariant),
+                ),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.of(dialogContext).pop();
+                  ref.read(authNotifierProvider.notifier).logout();
+                },
+                child: Text(
+                  context.l10n.logout,
+                  style: TextStyle(color: AppColors.error),
+                ),
+              ),
+            ],
+          ),
     );
   }
 }
