@@ -7,7 +7,8 @@ class AppColors {
   // Background Colors
   static const Color background = Color(0xFF0F172A); // Preto carvão
   static const Color surface = Color(0xFF111827);
-  static const Color surfaceVariant = Color(0xFF0B1220);
+  static const Color surfaceVariant = Color.fromARGB(255, 11, 14, 20);
+  static const Color surfaceAlpha = Color.fromARGB(200, 255, 255, 255);
 
   // Primary Colors
   static const Color primary = Color(0xFF22C55E); // Verde neon

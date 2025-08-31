@@ -187,4 +187,130 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get networkError => 'Network connection failed';
+
+  @override
+  String get editProfile => 'Edit Profile';
+
+  @override
+  String get personalInformation => 'Personal Information';
+
+  @override
+  String get preferences => 'Preferences';
+
+  @override
+  String get timezone => 'Timezone';
+
+  @override
+  String get city => 'City';
+
+  @override
+  String get country => 'Country';
+
+  @override
+  String get privacyAndData => 'Privacy & Data';
+
+  @override
+  String get exportData => 'Export My Data';
+
+  @override
+  String get deleteAccount => 'Delete Account';
+
+  @override
+  String get deleteAccountConfirmation => 'Are you sure you want to delete your account? This action cannot be undone.';
+
+  @override
+  String get exportDataDescription => 'Download all your data in a machine-readable format';
+
+  @override
+  String get deleteAccountDescription => 'Permanently delete your account and all associated data';
+
+  @override
+  String get profileUpdated => 'Profile updated successfully';
+
+  @override
+  String get accountDeleted => 'Account deleted successfully';
+
+  @override
+  String get dataExported => 'Data exported successfully';
+
+  @override
+  String get updateProfile => 'Update Profile';
+
+  @override
+  String get languageAndRegion => 'Language & Region';
+
+  @override
+  String get selectTimezone => 'Select Timezone';
+
+  @override
+  String get currentTimezone => 'Current Timezone';
+
+  @override
+  String get updating => 'Updating...';
+
+  @override
+  String get deleting => 'Deleting...';
+
+  @override
+  String get exporting => 'Exporting...';
+
+  @override
+  String get countryPT => 'Portugal';
+
+  @override
+  String get countryES => 'Spain';
+
+  @override
+  String get countryFR => 'France';
+
+  @override
+  String get countryDE => 'Germany';
+
+  @override
+  String get countryIT => 'Italy';
+
+  @override
+  String get countryGB => 'United Kingdom';
+
+  @override
+  String get countryUS => 'United States';
+
+  @override
+  String get countryBR => 'Brazil';
+
+  @override
+  String get countryNL => 'Netherlands';
+
+  @override
+  String get countryBE => 'Belgium';
+
+  @override
+  String get countryCH => 'Switzerland';
+
+  @override
+  String get countryAT => 'Austria';
+
+  @override
+  String get countryIE => 'Ireland';
+
+  @override
+  String get countryLU => 'Luxembourg';
+
+  @override
+  String get countryDK => 'Denmark';
+
+  @override
+  String get countrySE => 'Sweden';
+
+  @override
+  String get countryNO => 'Norway';
+
+  @override
+  String get countryFI => 'Finland';
+
+  @override
+  String get countryPL => 'Poland';
+
+  @override
+  String get countryCZ => 'Czech Republic';
 }

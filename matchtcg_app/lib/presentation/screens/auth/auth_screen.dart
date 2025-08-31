@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../core/extensions/localization_extension.dart';
 import '../../../core/providers/auth_providers.dart';
 import '../../../core/theme/app_spacing.dart';
+import '../../../core/constants/countries.dart';
 import '../../widgets/common/matchtcg_app_bar.dart';
 import '../../widgets/common/matchtcg_text_field.dart';
 import '../../widgets/common/primary_button.dart';
@@ -33,30 +34,6 @@ class _AuthScreenState extends ConsumerState<AuthScreen> {
   bool _obscurePassword = true;
   bool _obscureConfirmPassword = true;
   String? _selectedCountry;
-
-  // Lista de países com códigos ISO
-  final Map<String, String> _countries = {
-    'PT': 'Portugal',
-    'ES': 'Espanha',
-    'FR': 'França',
-    'DE': 'Alemanha',
-    'IT': 'Itália',
-    'GB': 'Reino Unido',
-    'US': 'Estados Unidos',
-    'BR': 'Brasil',
-    'NL': 'Países Baixos',
-    'BE': 'Bélgica',
-    'CH': 'Suíça',
-    'AT': 'Áustria',
-    'IE': 'Irlanda',
-    'LU': 'Luxemburgo',
-    'DK': 'Dinamarca',
-    'SE': 'Suécia',
-    'NO': 'Noruega',
-    'FI': 'Finlândia',
-    'PL': 'Polónia',
-    'CZ': 'República Checa',
-  };
 
   @override
   void initState() {
@@ -249,7 +226,7 @@ class _AuthScreenState extends ConsumerState<AuthScreen> {
                       ),
                     ),
                     items:
-                        _countries.entries.map((entry) {
+                        Countries.getCountryMap(context).entries.map((entry) {
                           return DropdownMenuItem<String>(
                             value: entry.key,
                             child: Text(entry.value),

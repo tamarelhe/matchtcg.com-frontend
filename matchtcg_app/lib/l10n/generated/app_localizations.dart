@@ -454,6 +454,258 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Network connection failed'**
   String get networkError;
+
+  /// Edit profile screen title
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Profile'**
+  String get editProfile;
+
+  /// Personal information section title
+  ///
+  /// In en, this message translates to:
+  /// **'Personal Information'**
+  String get personalInformation;
+
+  /// Preferences section title
+  ///
+  /// In en, this message translates to:
+  /// **'Preferences'**
+  String get preferences;
+
+  /// Timezone field label
+  ///
+  /// In en, this message translates to:
+  /// **'Timezone'**
+  String get timezone;
+
+  /// City field label
+  ///
+  /// In en, this message translates to:
+  /// **'City'**
+  String get city;
+
+  /// Country field label
+  ///
+  /// In en, this message translates to:
+  /// **'Country'**
+  String get country;
+
+  /// Privacy and data section title
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy & Data'**
+  String get privacyAndData;
+
+  /// Export data button text
+  ///
+  /// In en, this message translates to:
+  /// **'Export My Data'**
+  String get exportData;
+
+  /// Delete account button text
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Account'**
+  String get deleteAccount;
+
+  /// Delete account confirmation message
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete your account? This action cannot be undone.'**
+  String get deleteAccountConfirmation;
+
+  /// Export data description
+  ///
+  /// In en, this message translates to:
+  /// **'Download all your data in a machine-readable format'**
+  String get exportDataDescription;
+
+  /// Delete account description
+  ///
+  /// In en, this message translates to:
+  /// **'Permanently delete your account and all associated data'**
+  String get deleteAccountDescription;
+
+  /// Profile update success message
+  ///
+  /// In en, this message translates to:
+  /// **'Profile updated successfully'**
+  String get profileUpdated;
+
+  /// Account deletion success message
+  ///
+  /// In en, this message translates to:
+  /// **'Account deleted successfully'**
+  String get accountDeleted;
+
+  /// Data export success message
+  ///
+  /// In en, this message translates to:
+  /// **'Data exported successfully'**
+  String get dataExported;
+
+  /// Update profile button text
+  ///
+  /// In en, this message translates to:
+  /// **'Update Profile'**
+  String get updateProfile;
+
+  /// Language and region settings title
+  ///
+  /// In en, this message translates to:
+  /// **'Language & Region'**
+  String get languageAndRegion;
+
+  /// Timezone selection title
+  ///
+  /// In en, this message translates to:
+  /// **'Select Timezone'**
+  String get selectTimezone;
+
+  /// Current timezone label
+  ///
+  /// In en, this message translates to:
+  /// **'Current Timezone'**
+  String get currentTimezone;
+
+  /// Updating indicator text
+  ///
+  /// In en, this message translates to:
+  /// **'Updating...'**
+  String get updating;
+
+  /// Deleting indicator text
+  ///
+  /// In en, this message translates to:
+  /// **'Deleting...'**
+  String get deleting;
+
+  /// Exporting indicator text
+  ///
+  /// In en, this message translates to:
+  /// **'Exporting...'**
+  String get exporting;
+
+  /// Country name: Portugal
+  ///
+  /// In en, this message translates to:
+  /// **'Portugal'**
+  String get countryPT;
+
+  /// Country name: Spain
+  ///
+  /// In en, this message translates to:
+  /// **'Spain'**
+  String get countryES;
+
+  /// Country name: France
+  ///
+  /// In en, this message translates to:
+  /// **'France'**
+  String get countryFR;
+
+  /// Country name: Germany
+  ///
+  /// In en, this message translates to:
+  /// **'Germany'**
+  String get countryDE;
+
+  /// Country name: Italy
+  ///
+  /// In en, this message translates to:
+  /// **'Italy'**
+  String get countryIT;
+
+  /// Country name: United Kingdom
+  ///
+  /// In en, this message translates to:
+  /// **'United Kingdom'**
+  String get countryGB;
+
+  /// Country name: United States
+  ///
+  /// In en, this message translates to:
+  /// **'United States'**
+  String get countryUS;
+
+  /// Country name: Brazil
+  ///
+  /// In en, this message translates to:
+  /// **'Brazil'**
+  String get countryBR;
+
+  /// Country name: Netherlands
+  ///
+  /// In en, this message translates to:
+  /// **'Netherlands'**
+  String get countryNL;
+
+  /// Country name: Belgium
+  ///
+  /// In en, this message translates to:
+  /// **'Belgium'**
+  String get countryBE;
+
+  /// Country name: Switzerland
+  ///
+  /// In en, this message translates to:
+  /// **'Switzerland'**
+  String get countryCH;
+
+  /// Country name: Austria
+  ///
+  /// In en, this message translates to:
+  /// **'Austria'**
+  String get countryAT;
+
+  /// Country name: Ireland
+  ///
+  /// In en, this message translates to:
+  /// **'Ireland'**
+  String get countryIE;
+
+  /// Country name: Luxembourg
+  ///
+  /// In en, this message translates to:
+  /// **'Luxembourg'**
+  String get countryLU;
+
+  /// Country name: Denmark
+  ///
+  /// In en, this message translates to:
+  /// **'Denmark'**
+  String get countryDK;
+
+  /// Country name: Sweden
+  ///
+  /// In en, this message translates to:
+  /// **'Sweden'**
+  String get countrySE;
+
+  /// Country name: Norway
+  ///
+  /// In en, this message translates to:
+  /// **'Norway'**
+  String get countryNO;
+
+  /// Country name: Finland
+  ///
+  /// In en, this message translates to:
+  /// **'Finland'**
+  String get countryFI;
+
+  /// Country name: Poland
+  ///
+  /// In en, this message translates to:
+  /// **'Poland'**
+  String get countryPL;
+
+  /// Country name: Czech Republic
+  ///
+  /// In en, this message translates to:
+  /// **'Czech Republic'**
+  String get countryCZ;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

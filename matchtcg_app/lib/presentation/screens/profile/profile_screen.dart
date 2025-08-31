@@ -8,6 +8,12 @@ import '../../../core/theme/app_text_styles.dart';
 import '../../../core/theme/app_spacing.dart';
 import '../../../core/extensions/localization_extension.dart';
 import '../../../core/providers/auth_providers.dart';
+import '../../../core/providers/user_providers.dart';
+import '../../../core/constants/countries.dart';
+import '../../widgets/profile/game_interests_section.dart';
+import 'edit_profile_screen.dart';
+import '../settings/settings_screen.dart';
+import '../settings/language_settings_screen.dart';
 
 /// Profile screen for user account management and settings
 class ProfileScreen extends ConsumerWidget {
@@ -16,6 +22,16 @@ class ProfileScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final authState = ref.watch(authNotifierProvider);
+    final userState = ref.watch(userNotifierProvider);
+
+    // Load user profile if not loaded and authenticated
+    if (authState.isAuthenticated &&
+        userState.user == null &&
+        !userState.isLoading) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        ref.read(userNotifierProvider.notifier).loadCurrentUser();
+      });
+    }
 
     return Scaffold(
       backgroundColor: AppColors.background,
@@ -23,27 +39,30 @@ class ProfileScreen extends ConsumerWidget {
         title: context.l10n.profileTab,
         showBackButton: false,
         actions: [
-          Builder(
-            builder:
-                (context) => IconButton(
-                  icon: const Icon(Icons.settings_outlined),
-                  onPressed: () {
-                    // TODO: Navigate to settings
-                  },
-                  tooltip: context.l10n.settings,
-                ),
+          IconButton(
+            icon: const Icon(Icons.settings_outlined),
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => const SettingsScreen()),
+              );
+            },
+            tooltip: context.l10n.settings,
           ),
         ],
       ),
-      body: _ProfileContent(user: authState.user),
+      body: _ProfileContent(
+        user: userState.user ?? authState.user,
+        userState: userState,
+      ),
     );
   }
 }
 
 class _ProfileContent extends ConsumerWidget {
   final dynamic user;
+  final dynamic userState;
 
-  const _ProfileContent({this.user});
+  const _ProfileContent({this.user, this.userState});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -52,11 +71,19 @@ class _ProfileContent extends ConsumerWidget {
       child: Column(
         children: [
           // Profile header
-          _buildProfileHeader(),
+          _buildProfileHeader(context),
           const SizedBox(height: AppSpacing.large),
 
           // Quick stats
           _buildQuickStats(),
+          const SizedBox(height: AppSpacing.large),
+
+          // Game interests
+          GameInterestsSection(
+            interestedGameIds:
+                userState.user?.interestedGames ?? user?.interestedGames,
+            title: 'Interested Games',
+          ),
           const SizedBox(height: AppSpacing.large),
 
           // Action buttons
@@ -70,7 +97,7 @@ class _ProfileContent extends ConsumerWidget {
     );
   }
 
-  Widget _buildProfileHeader() {
+  Widget _buildProfileHeader(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(AppSpacing.medium),
       decoration: BoxDecoration(
@@ -105,18 +132,7 @@ class _ProfileContent extends ConsumerWidget {
               color: AppColors.primary.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(AppSpacing.radiusSmall),
             ),
-            child: const Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Icon(
-                  Icons.location_on_outlined,
-                  size: 16,
-                  color: AppColors.primary,
-                ),
-                SizedBox(width: AppSpacing.micro),
-                Text('Lisbon, Portugal', style: AppTextStyles.labelMedium),
-              ],
-            ),
+            child: _buildLocationWidget(context),
           ),
         ],
       ),
@@ -172,7 +188,11 @@ class _ProfileContent extends ConsumerWidget {
                 (context) => PrimaryButton(
                   text: context.l10n.edit,
                   onPressed: () {
-                    // TODO: Navigate to edit profile
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const EditProfileScreen(),
+                      ),
+                    );
                   },
                   icon: Icons.edit_outlined,
                 ),
@@ -235,7 +255,11 @@ class _ProfileContent extends ConsumerWidget {
           title: 'Language & Region',
           subtitle: 'Change app language and timezone',
           onTap: () {
-            // TODO: Navigate to language settings
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const LanguageSettingsScreen(),
+              ),
+            );
           },
         ),
         _buildMenuItem(
@@ -243,7 +267,9 @@ class _ProfileContent extends ConsumerWidget {
           title: 'Privacy & Data',
           subtitle: 'Manage your privacy settings',
           onTap: () {
-            // TODO: Navigate to privacy settings
+            Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => const SettingsScreen()),
+            );
           },
         ),
         _buildMenuItem(
@@ -305,6 +331,45 @@ class _ProfileContent extends ConsumerWidget {
         tileColor: AppColors.surface,
       ),
     );
+  }
+
+  Widget _buildLocationWidget(BuildContext context) {
+    final locationText = _getLocationText(context);
+
+    if (locationText.isEmpty) {
+      return const SizedBox.shrink(); // Don't show location if no data
+    }
+
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        const Icon(
+          Icons.location_on_outlined,
+          size: 16,
+          color: AppColors.primary,
+        ),
+        const SizedBox(width: AppSpacing.micro),
+        Text(locationText, style: AppTextStyles.labelMedium),
+      ],
+    );
+  }
+
+  String _getLocationText(BuildContext context) {
+    final city = user?.city;
+    final countryCode = user?.country;
+
+    // Convert country code to localized country name
+    final countryName = Countries.getCountryName(context, countryCode);
+
+    if (city != null && city.isNotEmpty && countryName.isNotEmpty) {
+      return '$city, $countryName';
+    } else if (city != null && city.isNotEmpty) {
+      return city;
+    } else if (countryName.isNotEmpty) {
+      return countryName;
+    }
+
+    return ''; // No location data available
   }
 
   String _getInitials() {

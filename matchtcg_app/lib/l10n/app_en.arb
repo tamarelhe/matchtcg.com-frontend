@@ -298,5 +298,215 @@
   "networkError": "Network connection failed",
   "@networkError": {
     "description": "Network error message"
+  },
+  
+  "editProfile": "Edit Profile",
+  "@editProfile": {
+    "description": "Edit profile screen title"
+  },
+  
+  "personalInformation": "Personal Information",
+  "@personalInformation": {
+    "description": "Personal information section title"
+  },
+  
+  "preferences": "Preferences",
+  "@preferences": {
+    "description": "Preferences section title"
+  },
+  
+  "timezone": "Timezone",
+  "@timezone": {
+    "description": "Timezone field label"
+  },
+  
+  "city": "City",
+  "@city": {
+    "description": "City field label"
+  },
+  
+  "country": "Country",
+  "@country": {
+    "description": "Country field label"
+  },
+  
+  "privacyAndData": "Privacy & Data",
+  "@privacyAndData": {
+    "description": "Privacy and data section title"
+  },
+  
+  "exportData": "Export My Data",
+  "@exportData": {
+    "description": "Export data button text"
+  },
+  
+  "deleteAccount": "Delete Account",
+  "@deleteAccount": {
+    "description": "Delete account button text"
+  },
+  
+  "deleteAccountConfirmation": "Are you sure you want to delete your account? This action cannot be undone.",
+  "@deleteAccountConfirmation": {
+    "description": "Delete account confirmation message"
+  },
+  
+  "exportDataDescription": "Download all your data in a machine-readable format",
+  "@exportDataDescription": {
+    "description": "Export data description"
+  },
+  
+  "deleteAccountDescription": "Permanently delete your account and all associated data",
+  "@deleteAccountDescription": {
+    "description": "Delete account description"
+  },
+  
+  "profileUpdated": "Profile updated successfully",
+  "@profileUpdated": {
+    "description": "Profile update success message"
+  },
+  
+  "accountDeleted": "Account deleted successfully",
+  "@accountDeleted": {
+    "description": "Account deletion success message"
+  },
+  
+  "dataExported": "Data exported successfully",
+  "@dataExported": {
+    "description": "Data export success message"
+  },
+  
+  "updateProfile": "Update Profile",
+  "@updateProfile": {
+    "description": "Update profile button text"
+  },
+  
+  "languageAndRegion": "Language & Region",
+  "@languageAndRegion": {
+    "description": "Language and region settings title"
+  },
+  
+  "selectTimezone": "Select Timezone",
+  "@selectTimezone": {
+    "description": "Timezone selection title"
+  },
+  
+  "currentTimezone": "Current Timezone",
+  "@currentTimezone": {
+    "description": "Current timezone label"
+  },
+  
+  "updating": "Updating...",
+  "@updating": {
+    "description": "Updating indicator text"
+  },
+  
+  "deleting": "Deleting...",
+  "@deleting": {
+    "description": "Deleting indicator text"
+  },
+  
+  "exporting": "Exporting...",
+  "@exporting": {
+    "description": "Exporting indicator text"
+  },
+  
+  "countryPT": "Portugal",
+  "@countryPT": {
+    "description": "Country name: Portugal"
+  },
+  
+  "countryES": "Spain",
+  "@countryES": {
+    "description": "Country name: Spain"
+  },
+  
+  "countryFR": "France",
+  "@countryFR": {
+    "description": "Country name: France"
+  },
+  
+  "countryDE": "Germany",
+  "@countryDE": {
+    "description": "Country name: Germany"
+  },
+  
+  "countryIT": "Italy",
+  "@countryIT": {
+    "description": "Country name: Italy"
+  },
+  
+  "countryGB": "United Kingdom",
+  "@countryGB": {
+    "description": "Country name: United Kingdom"
+  },
+  
+  "countryUS": "United States",
+  "@countryUS": {
+    "description": "Country name: United States"
+  },
+  
+  "countryBR": "Brazil",
+  "@countryBR": {
+    "description": "Country name: Brazil"
+  },
+  
+  "countryNL": "Netherlands",
+  "@countryNL": {
+    "description": "Country name: Netherlands"
+  },
+  
+  "countryBE": "Belgium",
+  "@countryBE": {
+    "description": "Country name: Belgium"
+  },
+  
+  "countryCH": "Switzerland",
+  "@countryCH": {
+    "description": "Country name: Switzerland"
+  },
+  
+  "countryAT": "Austria",
+  "@countryAT": {
+    "description": "Country name: Austria"
+  },
+  
+  "countryIE": "Ireland",
+  "@countryIE": {
+    "description": "Country name: Ireland"
+  },
+  
+  "countryLU": "Luxembourg",
+  "@countryLU": {
+    "description": "Country name: Luxembourg"
+  },
+  
+  "countryDK": "Denmark",
+  "@countryDK": {
+    "description": "Country name: Denmark"
+  },
+  
+  "countrySE": "Sweden",
+  "@countrySE": {
+    "description": "Country name: Sweden"
+  },
+  
+  "countryNO": "Norway",
+  "@countryNO": {
+    "description": "Country name: Norway"
+  },
+  
+  "countryFI": "Finland",
+  "@countryFI": {
+    "description": "Country name: Finland"
+  },
+  
+  "countryPL": "Poland",
+  "@countryPL": {
+    "description": "Country name: Poland"
+  },
+  
+  "countryCZ": "Czech Republic",
+  "@countryCZ": {
+    "description": "Country name: Czech Republic"
   }
 }
