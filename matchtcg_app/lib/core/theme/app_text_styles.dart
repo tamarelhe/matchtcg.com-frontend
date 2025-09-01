@@ -37,7 +37,7 @@ class AppTextStyles {
 
   static const TextStyle headlineMedium = TextStyle(
     fontFamily: _fontFamily,
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: FontWeight.w600,
     height: 1.4, // 28sp line height
     color: AppColors.onSurface,

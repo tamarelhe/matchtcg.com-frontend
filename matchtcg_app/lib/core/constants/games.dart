@@ -33,9 +33,15 @@ class Games {
     ),
     GameInterest(
       type: 'tcg',
-      id: 'dragonball',
-      name: 'Dragon Ball Super',
-      logoPath: _getAssetPath('assets/images/brands_logo/dragonball.png'),
+      id: 'lorcana',
+      name: 'Disney Lorcana',
+      logoPath: _getAssetPath('assets/images/brands_logo/lorcana.png'),
+    ),
+    GameInterest(
+      type: 'tcg',
+      id: 'fleshandblood',
+      name: 'Flesh and Blood',
+      logoPath: _getAssetPath('assets/images/brands_logo/fleshandblood.webp'),
     ),
     GameInterest(
       type: 'tcg',
@@ -45,21 +51,15 @@ class Games {
     ),
     GameInterest(
       type: 'tcg',
-      id: 'lorcana',
-      name: 'Disney Lorcana',
-      logoPath: _getAssetPath('assets/images/brands_logo/lorcana.png'),
-    ),
-    GameInterest(
-      type: 'tcg',
       id: 'digimon',
       name: 'Digimon Card Game',
       logoPath: _getAssetPath('assets/images/brands_logo/digimon.webp'),
     ),
     GameInterest(
       type: 'tcg',
-      id: 'fleshandblood',
-      name: 'Flesh and Blood',
-      logoPath: _getAssetPath('assets/images/brands_logo/fleshandblood.webp'),
+      id: 'dragonball',
+      name: 'Dragon Ball Super',
+      logoPath: _getAssetPath('assets/images/brands_logo/dragonball.png'),
     ),
   ];
 

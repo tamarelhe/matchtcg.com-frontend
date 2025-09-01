@@ -113,8 +113,8 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
               _buildLanguageSelector(),
               const SizedBox(height: AppSpacing.medium),
 
-              _buildTimezoneSelector(),
-              const SizedBox(height: AppSpacing.large),
+              //_buildTimezoneSelector(),
+              //const SizedBox(height: AppSpacing.large),
 
               // Game Interests Section
               _buildSectionHeader('Game Interests'),
@@ -127,7 +127,7 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
                     _selectedGameIds = selectedIds;
                   });
                 },
-                title: 'Select games you\'re interested in',
+                title: '',
               ),
               const SizedBox(height: AppSpacing.xxLarge),
 

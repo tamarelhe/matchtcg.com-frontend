@@ -47,8 +47,10 @@ class _GameSelectionWidgetState extends State<GameSelectionWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(widget.title, style: AppTextStyles.headlineMedium),
-        const SizedBox(height: AppSpacing.small),
+        if (widget.title.isNotEmpty) ...[
+          Text(widget.title, style: AppTextStyles.headlineMedium),
+          const SizedBox(height: AppSpacing.small),
+        ],
         SizedBox(
           height: 100,
           child: ListView.builder(
