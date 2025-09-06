@@ -168,10 +168,12 @@ class AppLocalizationsPt extends AppLocalizations {
   String get passwordRequired => 'Palavra-passe é obrigatória';
 
   @override
-  String get passwordTooShort => 'A palavra-passe deve ter pelo menos 8 caracteres';
+  String get passwordTooShort =>
+      'A palavra-passe deve ter pelo menos 8 caracteres';
 
   @override
-  String get confirmPasswordRequired => 'Por favor, confirme a sua palavra-passe';
+  String get confirmPasswordRequired =>
+      'Por favor, confirme a sua palavra-passe';
 
   @override
   String get passwordsDoNotMatch => 'As palavras-passe não coincidem';
@@ -216,13 +218,16 @@ class AppLocalizationsPt extends AppLocalizations {
   String get deleteAccount => 'Eliminar Conta';
 
   @override
-  String get deleteAccountConfirmation => 'Tem a certeza de que quer eliminar a sua conta? Esta ação não pode ser desfeita.';
+  String get deleteAccountConfirmation =>
+      'Tem a certeza de que quer eliminar a sua conta? Esta ação não pode ser desfeita.';
 
   @override
-  String get exportDataDescription => 'Descarregar todos os seus dados num formato legível por máquina';
+  String get exportDataDescription =>
+      'Descarregar todos os seus dados num formato legível por máquina';
 
   @override
-  String get deleteAccountDescription => 'Eliminar permanentemente a sua conta e todos os dados associados';
+  String get deleteAccountDescription =>
+      'Eliminar permanentemente a sua conta e todos os dados associados';
 
   @override
   String get profileUpdated => 'Perfil atualizado com sucesso';

@@ -33,7 +33,7 @@ dependencies:
   maplibre_gl: ^0.22.0
 
   # Internationalization
-  intl: ^0.19.0
+  intl: ^0.20.2
 
   # UI & Theming
   cupertino_icons: ^1.0.8

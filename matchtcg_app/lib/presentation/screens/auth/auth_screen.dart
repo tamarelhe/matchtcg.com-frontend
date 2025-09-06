@@ -218,7 +218,7 @@ class _AuthScreenState extends ConsumerState<AuthScreen> {
 
                   // Country dropdown
                   DropdownButtonFormField<String>(
-                    value: _selectedCountry,
+                    initialValue: _selectedCountry,
                     decoration: InputDecoration(
                       labelText: 'Country',
                       border: OutlineInputBorder(
@@ -232,9 +232,9 @@ class _AuthScreenState extends ConsumerState<AuthScreen> {
                             child: Text(entry.value),
                           );
                         }).toList(),
-                    onChanged: (value) {
+                    onChanged: (selectedValue) {
                       setState(() {
-                        _selectedCountry = value;
+                        _selectedCountry = selectedValue;
                       });
                     },
                     validator: _validateCountry,

@@ -246,56 +246,6 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
     );
   }
 
-  Widget _buildTimezoneSelector() {
-    return Container(
-      padding: const EdgeInsets.all(AppSpacing.medium),
-      decoration: BoxDecoration(
-        color: AppColors.surface,
-        borderRadius: BorderRadius.circular(AppSpacing.radiusMedium),
-        border: Border.all(color: AppColors.outline, width: 0.5),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            context.l10n.timezone,
-            style: AppTextStyles.labelLarge.copyWith(
-              color: AppColors.onSurface,
-            ),
-          ),
-          const SizedBox(height: AppSpacing.small),
-
-          Row(
-            children: [
-              Icon(Icons.access_time, color: AppColors.primary, size: 20),
-              const SizedBox(width: AppSpacing.small),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      context.l10n.currentTimezone,
-                      style: AppTextStyles.bodyMedium.copyWith(
-                        color: AppColors.onSurfaceVariant,
-                      ),
-                    ),
-                    Text(
-                      _selectedTimezone ?? 'Europe/Lisbon',
-                      style: AppTextStyles.bodyLarge.copyWith(
-                        color: AppColors.onSurface,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Icon(Icons.chevron_right, color: AppColors.onSurfaceVariant),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
   Future<void> _updateProfile() async {
     if (!_formKey.currentState!.validate()) {
       return;

@@ -216,13 +216,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get deleteAccount => 'Delete Account';
 
   @override
-  String get deleteAccountConfirmation => 'Are you sure you want to delete your account? This action cannot be undone.';
+  String get deleteAccountConfirmation =>
+      'Are you sure you want to delete your account? This action cannot be undone.';
 
   @override
-  String get exportDataDescription => 'Download all your data in a machine-readable format';
+  String get exportDataDescription =>
+      'Download all your data in a machine-readable format';
 
   @override
-  String get deleteAccountDescription => 'Permanently delete your account and all associated data';
+  String get deleteAccountDescription =>
+      'Permanently delete your account and all associated data';
 
   @override
   String get profileUpdated => 'Profile updated successfully';

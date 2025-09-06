@@ -13,7 +13,7 @@ class AppTheme {
       useMaterial3: true,
       brightness: Brightness.dark,
       fontFamily: 'Inter',
-      
+
       // Color Scheme
       colorScheme: const ColorScheme.dark(
         brightness: Brightness.dark,
@@ -62,7 +62,7 @@ class AppTheme {
       ),
 
       // Card Theme
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: AppColors.surface,
         elevation: AppSpacing.elevation1,
         shape: RoundedRectangleBorder(
@@ -189,7 +189,7 @@ class AppTheme {
       ),
 
       // Dialog Theme
-      dialogTheme: DialogTheme(
+      dialogTheme: DialogThemeData(
         backgroundColor: AppColors.surface,
         elevation: AppSpacing.elevation4,
         shape: RoundedRectangleBorder(
